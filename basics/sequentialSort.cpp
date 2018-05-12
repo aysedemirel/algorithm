@@ -20,7 +20,7 @@ int main()
 	int seq[] = { 56,3,249,518,7,26,98,651,23,9 };
 	int searching = 3;
 
-	cout << searching<<" is searching in array.....\n";
+	cout << searching<<": searching in array.....\n";
 
 	sequential(seq, searching);
 
