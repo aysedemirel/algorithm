@@ -1,4 +1,4 @@
-package weekone;
+package weekone.homeworkone;
 
 public class HelloGoodbye {
 
