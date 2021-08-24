@@ -1,85 +1,94 @@
 package basics;
 
 public class UnionFind {
-  int V, E; // V-> no. of vertices & E->no.of edges
-  Edge edge[]; // /collection of all edges
+  private int verticesNo;
+  private int edgesNo;
+  private Edge[] edge;
 
   class Edge {
-    int src;
-    int dest;
-  };
-
-  // Creates a graph with V vertices and E edges
-  UnionFind(int v, int e) {
-    V = v;
-    E = e;
-    edge = new Edge[E];
-    for (int i = 0; i < e; ++i)
-      edge[i] = new Edge();
+    int source;
+    int destination;
   }
 
-  // A utility function to find the subset of an element i
-  int find(int parent[], int i) {
-    if (parent[i] == -1)
+  public UnionFind(int verticesNo, int edgesNo) {
+    this.verticesNo = verticesNo;
+    this.edgesNo = edgesNo;
+    createEdge();
+  }
+
+  private void createEdge() {
+    edge = new Edge[edgesNo];
+    for (int i = 0; i < edgesNo; ++i) {
+      edge[i] = new Edge();
+    }
+  }
+
+  // O(v)
+  public int find(int[] parent, int i) {
+    if (parent[i] == -1) {
       return i;
+    }
     return find(parent, parent[i]);
   }
 
-  // A utility function to do union of two subsets
-  void union(int parent[], int x, int y) {
+  // O(e)
+  public void union(int[] parent, int x, int y) {
     parent[x] = y;
   }
 
+  // O((v+e)*(v))
+  public boolean isCycle() {
+    boolean isCycle = false;
+    int[] parent = initArray();
+    for (int i = 0; i < edgesNo; ++i) {
+      int x = find(parent, edge[i].source);
+      int y = find(parent, edge[i].destination);
 
-  // The main function to check whether a given graph
-  // contains cycle or not
-  int isCycle(UnionFind graph) {
-    // Allocate memory for creating V subsets
-    int parent[] = new int[graph.V];
-
-    // Initialize all subsets as single element sets
-    for (int i = 0; i < graph.V; ++i)
-      parent[i] = -1;
-
-    // Iterate through all edges of graph, find subset of both
-    // vertices of every edge, if both subsets are same, then
-    // there is cycle in graph.
-    for (int i = 0; i < graph.E; ++i) {
-      int x = graph.find(parent, graph.edge[i].src);
-      int y = graph.find(parent, graph.edge[i].dest);
-
-      if (x == y)
-        return 1;
-
-      graph.union(parent, x, y);
+      if (x == y) {
+        isCycle = true;
+      } else {
+        union(parent, x, y);
+      }
     }
-    return 0;
+    return isCycle;
   }
 
-  // Driver Method
+  private int[] initArray() {
+    int[] array = new int[verticesNo];
+    for (int i = 0; i < verticesNo; ++i) {
+      array[i] = -1;
+    }
+    return array;
+  }
+
   public static void main(String[] args) {
     /*
-     * Let us create the following graph 0 | \ | \ 1---2
+     * Let us create the following graph 2-0-1-3-4 (so there is no cycle)
      */
-    int V = 3;
-    int E = 3;
-    UnionFind graph = new UnionFind(V, E);
+    int vertices = 5;
+    int edges = 4;
+    UnionFind graph = new UnionFind(vertices, edges);
 
     // add edge 0-1
-    graph.edge[0].src = 0;
-    graph.edge[0].dest = 1;
+    graph.edge[0].source = 0;
+    graph.edge[0].destination = 1;
 
     // add edge 1-2
-    graph.edge[1].src = 1;
-    graph.edge[1].dest = 2;
+    graph.edge[1].source = 1;
+    graph.edge[1].destination = 3;
 
     // add edge 0-2
-    graph.edge[2].src = 0;
-    graph.edge[2].dest = 2;
+    graph.edge[2].source = 0;
+    graph.edge[2].destination = 2;
 
-    if (graph.isCycle(graph) == 1)
+    // add edge 3-4
+    graph.edge[3].source = 3;
+    graph.edge[3].destination = 4;
+
+    if (graph.isCycle()) {
       System.out.println("graph contains cycle");
-    else
+    } else {
       System.out.println("graph doesn't contain cycle");
+    }
   }
 }
