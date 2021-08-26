@@ -1,5 +1,6 @@
 package basics;
 
+/** @author aysedemirel */
 public class UnionFind {
   private int verticesNo;
   private int edgesNo;

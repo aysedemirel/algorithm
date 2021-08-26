@@ -14,6 +14,8 @@ import edu.princeton.cs.algs4.UF;
  * 4 3 ->print (not connected)<br>
  * 3 5 ->print (not connected)<br>
  * 6 3 ->don't print(connected)
+ * 
+ * @author aysedemirel
  */
 public class DynamicConnectivityClient {
   public static void main(String[] args) {

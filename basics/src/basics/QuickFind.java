@@ -1,24 +1,33 @@
 package basics;
 
+/** @author aysedemirel */
 public class QuickFind {
   private int[] id;
 
+  // o(N)
   public QuickFind(int N) {
     id = new int[N];
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++) {
       id[i] = i;
+    }
   }
 
+  // o(1)
   public boolean connected(int p, int q) {
     return id[p] == id[q];
   }
 
+
+  /** N Operation: N*N times for union */
+  // o(N)
   public void union(int p, int q) {
     int pid = id[p];
     int qid = id[q];
-    for (int i = 0; i < id.length; i++)
-      if (id[i] == pid)
+    for (int i = 0; i < id.length; i++) {
+      if (id[i] == pid) {
         id[i] = qid;
+      }
+    }
   }
 
   public static void main(String[] args) {

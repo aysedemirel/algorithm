@@ -1,5 +1,6 @@
 package weekone.homeworkone;
 
+/** @author aysedemirel */
 public class HelloGoodbye {
 
   public static void main(String[] args) {

@@ -3,6 +3,8 @@ package weekone.lessonmaterial;
 /**
  * quick find algorithm class
  * 
+ * @author aysedemirel
+ * 
  */
 public class QuickFindUF {
   private int[] id;
