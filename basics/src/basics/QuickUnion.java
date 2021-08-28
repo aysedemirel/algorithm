@@ -2,7 +2,7 @@ package basics;
 
 /** @author aysedemirel */
 public class QuickUnion {
-  private int[] id;
+  protected int[] id;
 
   // o(N)
   public QuickUnion(int N) {
@@ -12,7 +12,7 @@ public class QuickUnion {
     }
   }
 
-  private int root(int i) {
+  protected int root(int i) {
     while (i != id[i]) {
       i = id[i];
     }

@@ -5,7 +5,7 @@ package weekone.lessonmaterial;
  * 
  */
 public class QuickUnionUF {
-  private int[] id;
+  protected int[] id;
 
   public QuickUnionUF(int N) {
     id = new int[N];
@@ -13,7 +13,7 @@ public class QuickUnionUF {
       id[i] = i;
   }
 
-  private int root(int i) {
+  protected int root(int i) {
     while (i != id[i])
       i = id[i];
     return i;
