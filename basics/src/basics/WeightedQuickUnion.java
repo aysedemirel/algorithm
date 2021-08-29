@@ -7,6 +7,7 @@ public class WeightedQuickUnion extends QuickUnion {
 
   public WeightedQuickUnion(int N) {
     super(N);
+    sizeOfTree = new int[N];
   }
 
   // o(lgN)
