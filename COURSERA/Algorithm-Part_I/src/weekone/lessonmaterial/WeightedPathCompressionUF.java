@@ -7,7 +7,7 @@ public class WeightedPathCompressionUF extends WeightedQuickUnionUF {
   }
 
   @Override
-  protected int root(int i) {
+  public int root(int i) {
     while (i != id[i]) {
       id[i] = id[id[i]];
       i = id[i];

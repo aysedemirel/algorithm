@@ -10,6 +10,7 @@ public class WeightedQuickUnionUF extends QuickUnionUF {
 
   public WeightedQuickUnionUF(int N) {
     super(N);
+    sizeOfTree = new int[N];
   }
 
   @Override

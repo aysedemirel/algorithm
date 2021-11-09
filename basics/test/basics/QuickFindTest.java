@@ -10,7 +10,6 @@ public class QuickFindTest {
     System.out.println("Weighted Quick Union:");
     WeightedQuickUnion weighted = new WeightedQuickUnion(sizeOfIdArr);
     weighted.union(4, 3);
-    weighted.union(4, 3);
     weighted.union(3, 8);
     weighted.union(6, 5);
     weighted.union(9, 4);
@@ -28,7 +27,6 @@ public class QuickFindTest {
     final int sizeOfIdArr = 10;
     System.out.println("Quick Union:");
     QuickUnion quickUnion = new QuickUnion(sizeOfIdArr);
-    quickUnion.union(4, 3);
     quickUnion.union(4, 3);
     quickUnion.union(3, 8);
     quickUnion.union(6, 5);
@@ -48,7 +46,6 @@ public class QuickFindTest {
     System.out.println("Path compression:");
     PathCompressionQU pathComp = new PathCompressionQU(sizeOfIdArr);
     pathComp.union(4, 3);
-    pathComp.union(4, 3);
     pathComp.union(3, 8);
     pathComp.union(6, 5);
     pathComp.union(9, 4);
@@ -66,7 +63,6 @@ public class QuickFindTest {
     final int sizeOfIdArr = 10;
     System.out.println("WQUPC:");
     WQUPC wqupc = new WQUPC(sizeOfIdArr);
-    wqupc.union(4, 3);
     wqupc.union(4, 3);
     wqupc.union(3, 8);
     wqupc.union(6, 5);

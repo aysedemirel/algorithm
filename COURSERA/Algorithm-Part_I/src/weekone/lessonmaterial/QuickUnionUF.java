@@ -13,7 +13,7 @@ public class QuickUnionUF {
       id[i] = i;
   }
 
-  protected int root(int i) {
+  public int root(int i) {
     while (i != id[i])
       i = id[i];
     return i;
@@ -27,5 +27,9 @@ public class QuickUnionUF {
     int i = root(p);
     int j = root(q);
     id[i] = j;
+  }
+
+  public int[] getIdArray() {
+    return id;
   }
 }
