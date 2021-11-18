@@ -1,4 +1,4 @@
-package java.datastructures.stack;
+package datastructures.basic.stack;
 
 import java.util.EmptyStackException;
 import java.util.Iterator;

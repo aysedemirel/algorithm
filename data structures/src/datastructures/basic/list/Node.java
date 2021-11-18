@@ -1,4 +1,4 @@
-package java.datastructures.list;
+package datastructures.basic.list;
 
 public class Node<T> {
   private T data;
