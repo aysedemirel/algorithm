@@ -19,22 +19,22 @@ public class MergeSort {
 
   private void merge(int[] numbers, int left, int middle, int right) {
     int leftLength = middle - left + 1;
-    int rigthLength = right - middle;
+    int rightLength = right - middle;
 
     int[] leftSide = new int[leftLength];
-    int[] rightSide = new int[rigthLength];
+    int[] rightSide = new int[rightLength];
 
     for (int i = 0; i < leftLength; ++i) {
       leftSide[i] = numbers[left + i];
     }
-    for (int i = 0; i < rigthLength; ++i) {
+    for (int i = 0; i < rightLength; ++i) {
       rightSide[i] = numbers[middle + 1 + i];
     }
 
     int i = 0;
     int j = 0;
     int k = left;
-    while (i < leftLength && j < rigthLength) {
+    while (i < leftLength && j < rightLength) {
       if (leftSide[i] <= rightSide[j]) {
         numbers[k] = leftSide[i];
         i++;
@@ -49,7 +49,7 @@ public class MergeSort {
       i++;
       k++;
     }
-    while (j < rigthLength) {
+    while (j < rightLength) {
       numbers[k] = rightSide[j];
       j++;
       k++;
