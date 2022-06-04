@@ -14,7 +14,7 @@ public class MergeSort {
       sort(numbers, middle + 1, right);
       merge(numbers, left, middle, right);
     }
-    System.out.println(Arrays.toString(numbers));
+    System.out.println("Merge Sort: " + Arrays.toString(numbers));
   }
 
   private void merge(int[] numbers, int left, int middle, int right) {
